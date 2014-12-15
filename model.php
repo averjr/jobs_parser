@@ -17,7 +17,6 @@ class Job
                 if (!empty($key)) {
                     $topic_id = $this->_return_create_topic($key);
                     $results = $this->_save_options($value, $topic_id);
-                    var_dump($results);
                 } else {
                     throw new Exception('Empty section.');
                 }
