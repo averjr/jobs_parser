@@ -46,7 +46,7 @@ class Job
         return $this->db->multi_insert("INSERT INTO options (topic_id, name, value ) VALUE (:topic_id, :name, :value)", $array);
     }
 
-    public function create_topics($title)
+    public function create_topic($title)
     {
         $this->db->query("INSERT INTO topics (name) VALUE (?)", $title);
         return $this->db->getLastId();
