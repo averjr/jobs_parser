@@ -1,0 +1,29 @@
+CREATE TABLE IF NOT EXISTS `options` (
+`id` int(11) NOT NULL,
+  `topic_id` int(11) NOT NULL,
+  `name` varchar(300) NOT NULL,
+  `value` varchar(800) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `topics` (
+`id` int(11) NOT NULL,
+  `name` varchar(300) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `options`
+ ADD PRIMARY KEY (`id`), ADD KEY `topic_id` (`topic_id`);
+
+ALTER TABLE `topics`
+ ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `options`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
+
+
+ALTER TABLE `topics`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
+
+ALTER TABLE `options`
+ADD CONSTRAINT `options_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
